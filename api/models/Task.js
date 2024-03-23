@@ -14,7 +14,8 @@ module.exports = {
         },
 
         comments: {
-            
+            collection: 'Comment',
+            via: 'taskRelatedTo'
         },
 
         taskCreatedAt: {

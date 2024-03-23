@@ -9,8 +9,8 @@ module.exports = {
         },
         
         raisedAt: {
-            type: 'datetime',
-            defaultsTo: () => new Date()
+            type: 'number', // or 'string' depending on how you store your dates
+            required: true
         },
 
         issueDescription: {
@@ -47,7 +47,7 @@ module.exports = {
         },
 
         resolvedAt: {
-            type: 'datetime' 
+            type: 'number' 
         },
 
         resolutionDetails: {
@@ -67,5 +67,12 @@ module.exports = {
         //     via: 'issue'
         // },
     
+        },
+
+        beforeCreate: async function (values, proceed) {
+            if (!values.raisedAt) {
+                values.raisedAt = new Date();
+            }
+            return proceed();
         }
     };

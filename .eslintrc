@@ -69,7 +69,7 @@
     "no-duplicate-case":            ["error"],
     "no-extra-semi":                ["warn"],
     "no-labels":                    ["error"],
-    "no-mixed-spaces-and-tabs":     [2, "smart-tabs"],
+    "no-mixed-spaces-and-tabs":     [4, "smart-tabs"],
     "no-redeclare":                 ["warn"],
     "no-return-assign":             ["error", "always"],
     "no-sequences":                 ["error"],
