@@ -10,7 +10,7 @@
 
 module.exports.policies = {
 
-  '*': 'is-logged-in',
+  // '*': 'is-logged-in',
 
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
@@ -23,4 +23,5 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'profile/create-profile': true,
   'profile/login': true,
+  'event/create-event': ['isAuth']
 };

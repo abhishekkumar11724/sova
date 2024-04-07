@@ -59,7 +59,7 @@ module.exports = {
             }
 
             // Generate JWT token
-            const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' });
+            const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1y' });
 
             return exits.success({
                 message: 'User logged in successfully.',

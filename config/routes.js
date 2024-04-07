@@ -15,8 +15,9 @@ module.exports.routes = {
   'POST /api/v1/login': {action: 'profile/login'},
   'GET /api/v1/logout': {action: 'profile/logout'},
   'GET /api/v1/profile-details': {action: 'profile/get-details'},
-  'PUT /api/v1/update-profile-data': {action: 'profile/update-details'}
-  
+  'PUT /api/v1/update-profile-data': {action: 'profile/update-details'},
+  'POST /api/v1/create-event': {action: 'event/create-event'},
+  'GET /api/v1/get-all-user-event': {action: 'event/get-all-user-event'}
 
 
   // //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
