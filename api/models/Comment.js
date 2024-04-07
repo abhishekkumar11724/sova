@@ -1,19 +1,11 @@
+
+
 module.exports = {
 
-
     attributes: {
-        text: { 
-            type: 'string', 
-            required: true 
-        },
-
-        taskRelatedTo: {
-            model: "Task",
-            Required: true,
-        },
-
-        commentedBy: {
-            model: 'Profile'
-        },
+        id: { type: 'string', columnName: '_id' },
+        text: { type: 'string', required: true },
+        taskRelatedTo: { model: "Task", required: true, },
+        commentedBy: { model: 'Profile'},
     }
 }

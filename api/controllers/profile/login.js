@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretKey = process.env.JWT_SECRET_KEY
 
-module.exports = {
+module.exports = {  
     friendlyName: 'User login',
 
     description: 'Authenticate user and generate JWT token.',
@@ -42,14 +42,20 @@ module.exports = {
         try {
             // Find the user by email address
             const user = await Profile.findOne({ emailAddress: inputs.emailAddress });
-            if (!user) {
-                throw 'invalid';
+            if (!user) { 
+                return exits.invalid({
+                    mesasge: "no user found",
+                }) 
             }
 
+            console.log(secretKey)
+
             // Compare the provided password with the hashed password in the database
-            const passwordMatch = await bcrypt.compare(inputs.password, user.password);
+            const passwordMatch = (inputs.password === user.password);
             if (!passwordMatch) {
-                throw 'invalid';
+                return exits.invalid({
+                    mesasge: 'incorrect password'
+                }) 
             }
 
             // Generate JWT token

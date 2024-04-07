@@ -3,48 +3,16 @@
 // 
 
 module.exports = {
-    
-    eventName: {
-        type: 'string',
-        maxLength: 120,
-        required: true,
-    },
-
-    startDate: {
-        type: 'datetime',
-        require: true,
-    },
-    
-    endDate: {
-        type: 'datetime',
-    },
-    
-    eventDescription: {
-        type: 'text' 
-    },
-    
-    eventOrganizer: {
-        model: 'Profile',
-        required: true,
-    },
-
-    eventMemberList: {
-        collection: "Profiles",
-        via: 'Events',
-    },
-
-    groupList: {
-        collection: 'Group',
-        via: "eventRelatedTo"
-    },
-
-    taskList: {
-        collection: 'task',
-        via: 'eventRelatedTo'
-    },
-
-    issueList: {
-        collection: 'Issues',
-        via: 'eventRelatedTo'
-    },
-}
+    attributes: {
+        id: { type: 'string', columnName: '_id' },
+        eventName: { type: 'string', maxLength: 120, required: true, },
+        startDate: { type: 'number', autoCreatedAt: true },
+        endDate: { type: 'number', },
+        eventDescription: { type: 'string' },
+        eventOrganizer: { model: 'Profile', required: true, },
+        eventMemberList: { collection: "Profile", },
+        groupList: { collection: 'Group', via: "eventRelatedTo" },
+        taskList: { collection: 'task', via: 'eventRelatedTo' },
+        issueList: { collection: 'Issue', via: 'eventRelatedTo' },
+    }
+};

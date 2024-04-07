@@ -47,7 +47,10 @@ module.exports = {
         // Check if the email address is already in use
         const existingUser = await Profile.findOne({ emailAddress: inputs.emailAddress });
         if (existingUser) {
-            throw 'emailAlreadyInUse';
+            return exits.emailAlreadyInUse({
+                message: "Email already in Use",
+            })
+            // throw 'emailAlreadyInUse';
         }
 
         // Create the new profile
